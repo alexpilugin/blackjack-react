@@ -1,0 +1,111 @@
+div {
+  display: block;
+  box-sizing: border-box;
+}
+
+.App {
+  text-align: left;
+}
+
+.App-header {
+  background-color: #222;
+  height: 40px;
+  padding: 5px 0px;
+  color: white;
+}
+.App-header > h2,
+.playerZone > span
+ {
+  padding: 0px;
+  margin: 0px;
+}
+.App-header > h2 {
+  display: inline-block;
+  margin: 0px 10px 20px 5px;
+}
+.App-header > button {
+  height: 24px;
+  margin: 0px 5px 20px 5px;
+}
+
+.App-intro {
+  font-size: large;
+}
+.playerZone > span {
+  display: block;
+  width: 100%;
+  clear: both;
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+.playerZone > span div {
+  display: inline-block;
+  vertical-align: baseline;
+  margin-left: 10px;
+}
+.red {
+  color: red;
+}
+.hide {
+  display: none;
+}
+.clickable {
+  cursor: pointer;
+}
+
+.hints {
+  background-color: #444; 
+  height: 30px;
+  padding: 5px; 
+  color: white;
+}
+.hints  p {
+  margin: 0px;
+  padding: 0px;
+}
+.App-header > button,
+.controls button {
+  display: inline-block;
+  width: 100px;
+  height: 30px;
+  border-radius: 10px;
+  border: 2px solid black;
+  cursor: pointer;
+  margin-left: 10px;
+  font-weight: bold;
+}
+.App-header > button:hover,
+.controls button:hover {
+  background-color: white;
+}
+.Card {
+  background-image:  url("cards-sprite-atlas.png");
+  background-color: white;
+  background-repeat: no-repeat;
+  width: 161px;
+  height: 234px;
+  float: left;
+  border: 2px solid black;
+  border-radius: 10px;
+  margin: 5px;
+}
+.win {
+  background-image:  url("you-win.gif"); 
+  background-repeat: no-repeat; 
+  background-color: white;
+  width: 550px;
+  height: 400px;
+}
+.dealer-win {
+  background-image:  url("dealer-win.jpg"); 
+  background-repeat: no-repeat; 
+  background-color: white;
+  width: 550px;
+  height: 805px;  
+}
+.playerZone {
+  width: 100%;
+  clear: both;
+  text-align: left;
+  padding: 10px;
+}
