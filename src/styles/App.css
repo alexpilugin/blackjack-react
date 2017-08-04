@@ -2,7 +2,27 @@ div {
   display: block;
   box-sizing: border-box;
 }
-
+textarea:focus, 
+input:focus,
+button {
+    outline: none;
+}
+button {
+  display: inline-block;
+  width: 100px;
+  height: 30px;
+  border-radius: 10px;
+  border: 2px solid black;
+  cursor: pointer;
+  margin-left: 10px;
+  font-weight: bold; 
+}
+button:hover {
+  background-color: white;
+}
+button#reset {
+  vertical-align: 40%;
+}
 .App {
   text-align: left;
 }
@@ -10,7 +30,7 @@ div {
 .App-header {
   background-color: #222;
   height: 40px;
-  padding: 5px 0px;
+  padding: 5px 0px 10px 0px;
   color: white;
 }
 .App-header > h2,
@@ -30,6 +50,7 @@ div {
 
 .App-intro {
   font-size: large;
+  padding: 10px;
 }
 .playerZone > span {
   display: block;
@@ -89,10 +110,29 @@ div {
   border-radius: 10px;
   margin: 5px;
 }
+
+.playerZone {
+  width: 100%;
+  clear: both;
+  text-align: left;
+  padding: 10px;
+}
+.playerZone span {
+  padding-bottom: 10px;
+}
+.player-lost {
+  background-image:  url("travolta.png"); 
+  background-repeat: no-repeat; 
+  background-color: white;
+  background-size: contain;
+  width: 720px;
+  height: 304px;  
+}
 .win {
   background-image:  url("you-win.gif"); 
   background-repeat: no-repeat; 
   background-color: white;
+  background-size: contain;
   width: 550px;
   height: 400px;
 }
@@ -100,12 +140,25 @@ div {
   background-image:  url("dealer-win.jpg"); 
   background-repeat: no-repeat; 
   background-color: white;
-  width: 550px;
-  height: 805px;  
+  background-size: contain;
+  width: 394px;
+  height: 576px;  
 }
-.playerZone {
-  width: 100%;
-  clear: both;
-  text-align: left;
-  padding: 10px;
+.dealer-failed {
+  background-image:  url("bjBABE.jpg"); 
+  background-repeat: no-repeat; 
+  background-color: white;
+  background-size: contain;
+  width: 503px;
+  height: 576px;  
+}
+.dead-heat {
+  background-image:  url("679-2.png"); 
+  background-repeat: no-repeat; 
+  background-color: white;
+  width: 348px;
+  height: 192px;   
+}
+.white {
+  color: white;
 }

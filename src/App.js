@@ -13,7 +13,8 @@ class App extends Component {
       playerLost: false,
       playerWin: false,
       dealerWin: false,
-      dealerLost: false
+      dealerLost: false,
+      dead_heat: false
     }
   }
 
@@ -31,7 +32,8 @@ class App extends Component {
       playerLost: false,
       playerWin: false,
       dealerWin: false,
-      dealerLost: false
+      dealerLost: false,
+      dead_heat: false
     })
   }
 
@@ -53,11 +55,15 @@ class App extends Component {
       }
       if (dealerScores > 21) {
         this.setState({ dealerLost: true });
-      } else {
-        this.setState({ turn: this.state.turn++ });
       }
+      if (dealerScores === playerScores) {
+        if (dealerScores > 16 && dealerScores < 21) {
+          this.setState({ dead_heat: true });
+        }
+      }
+      this.setState({ turn: this.state.turn++ });
     }
-
+    //dead heat
     if (playerScores == 21) {
       this.setState({ playerWin: true });
     }
@@ -111,25 +117,46 @@ class App extends Component {
           <h2>Black Jack</h2><button id="reset" onClick={this.reset}>New Game</button>
         </div>
 
-        <div className="App-intro">
-          <h2>Dealer scores: {dealerScores} ({dValues}). Dealer win! <br />
-            Player scores: {playerScores} ({plValues}).
+        <div className="App-intro white">
+          <h2>Dealer win! <br />
+            Dealer scores: {dealerScores} - {dValues}. <br />
+            Player scores: {playerScores} - {plValues}.
           </h2>
           <div className="dealer-win"></div>
         </div>
       </div>
     )
 
-    if (this.state.dealerLost) return (
+    if (this.state.dead_heat) return (
       <div className="App">
-        <div className="App-header">
+        <div className="App-header ">
           <h2>Black Jack</h2><button id="reset" onClick={this.reset}>New Game</button>
         </div>
 
-        <div className="App-intro">
-          <h2>Dealer scores: {dealerScores} ({dValues}). Dealer lost! <br />
-            Player scores: {playerScores} ({plValues}).
+        <div className="App-intro white">
+          <h2>Dead heat! <br />
+            Dealer scores: {dealerScores} - {dValues}. <br />
+            Player scores: {playerScores} - {plValues}.
           </h2>
+          <div className="dead-heat"></div>
+
+        </div>
+      </div>
+    )
+
+    if (this.state.dealerLost) return (
+      <div className="App">
+        <div className="App-header ">
+          <h2>Black Jack</h2><button id="reset" onClick={this.reset}>New Game</button>
+        </div>
+
+        <div className="App-intro white">
+          <h2>Dealer lost! <br />
+            Dealer scores: {dealerScores} - {dValues}. <br />
+            Player scores: {playerScores} - {plValues}.
+          </h2>
+          <div className="dealer-failed"></div>
+
         </div>
       </div>
     )
@@ -140,9 +167,10 @@ class App extends Component {
           <h2>Black Jack</h2><button id="reset" onClick={this.reset}>New Game</button>
         </div>
 
-        <div className="App-intro">
-          <h2>Player scores: {playerScores} ({plValues}). You win! <br />
-            Dealer scores: {dealerScores} ({dValues}).
+        <div className="App-intro white">
+          <h2>You win! <br />
+            Player scores: {playerScores} - {plValues}. <br />
+            Dealer scores: {dealerScores} {dValues}.
           </h2>
           <div className="win"></div>
         </div>
@@ -154,10 +182,12 @@ class App extends Component {
         <div className="App-header">
           <h2>Black Jack</h2><button id="reset" onClick={this.reset}>New Game</button>
         </div>
-        <div className="App-intro">
-          <h2>Player scores: {playerScores} ({plValues}) - LOST!  <br />
-            Dealer scores: {dealerScores} ({dValues}).
+        <div className="App-intro white">
+          <h2>You LOST!  <br />
+            Player scores: {playerScores} - {plValues} <br />
+            Dealer scores: {dealerScores} - {dValues}.
           </h2>
+          <div className="player-lost"></div>
         </div>
       </div>
     )

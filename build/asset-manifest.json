@@ -1,9 +1,12 @@
 {
-  "main.css": "static/css/main.2e3e1498.css",
-  "main.css.map": "static/css/main.2e3e1498.css.map",
-  "main.js": "static/js/main.f38ec7bb.js",
-  "main.js.map": "static/js/main.f38ec7bb.js.map",
+  "main.css": "static/css/main.39a1d49f.css",
+  "main.css.map": "static/css/main.39a1d49f.css.map",
+  "main.js": "static/js/main.3df2d76e.js",
+  "main.js.map": "static/js/main.3df2d76e.js.map",
+  "static/media/679-2.png": "static/media/679-2.281b10a2.png",
+  "static/media/bjBABE.jpg": "static/media/bjBABE.47b64bbd.jpg",
   "static/media/cards-sprite-atlas.png": "static/media/cards-sprite-atlas.c75e6e05.png",
-  "static/media/dealer-win.jpg": "static/media/dealer-win.a909c71e.jpg",
+  "static/media/dealer-win.jpg": "static/media/dealer-win.4705d052.jpg",
+  "static/media/travolta.png": "static/media/travolta.6c050464.png",
   "static/media/you-win.gif": "static/media/you-win.da83380d.gif"
 }
