@@ -1,0 +1,25 @@
+.playerZone {
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+.playerZone .header {
+    width: 100%;
+    padding-bottom: 15px;
+}
+.playerZone .header .PlayerInfo,
+.playerZone .header button {
+    display: inline-block;
+}
+.playerZone .header button {
+  width: 100px;
+  height: 30px;
+  border-radius: 15px;
+  border: 2px solid black;
+  cursor: pointer;
+  margin-left: 10px;
+  font-weight: bold;
+  background-color: #eee; 
+}
+.playerZone .header button:hover {
+  background-color: white;
+}

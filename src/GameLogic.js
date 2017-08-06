@@ -1,15 +1,14 @@
-const BLACK_JACK = 21;
-
 const cardValues = [
-    1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10,
-    1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10,
-    1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10,
-    1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10];
+    11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 20, 20, 20,
+    11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 20, 20, 20,
+    11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 20, 20, 20,
+    11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 20, 20, 20];
 
 class Card {
-    constructor(spriteNum, value) {
+    constructor(spriteNum, value, faceCard) {
         this.spriteNum = spriteNum;
         this.value = value;
+        this.faceCard = faceCard /* J, Q, K */ 
     }
 }
 
@@ -18,7 +17,6 @@ class Player {
         this.name = name;
         this.cards = [];
         this.scores = 0;
-        this.hasAces = false;
     }
     estimate() {
         let scores = 0;
@@ -29,31 +27,28 @@ class Player {
     }
     addCard(card) {
         this.cards.push(card);
-        if (card.value == 1 || card.value == 11) this.hasAces = true;
         this.estimate();
     }
     changeAceValue(card) {
         if (!card) return;
-        console.log(card);
+        //console.log(card);
         for (var i = 0; i < this.cards.length; i++) {
             if (this.cards[i].spriteNum === card.spriteNum && this.cards[i].value === card.value) {
                 if (this.cards[i].value === 1) {
                     this.cards[i].value = 11;
-                    console.log("A");
                     break;
                 }
                 if (this.cards[i].value === 11) {
                     this.cards[i].value = 1;
-                    console.log("B");
                     break;
                 }
-                console.log("value: " + this.cards[i].value)
+                //console.log("value: " + this.cards[i].value)
             }
         }
         this.estimate();
     }
-    getScores = () => this.scores
-    getName = () => this.name
+    getScores = () => this.scores;
+    getName = () => this.name;
     valuesToString = () => {
         let str = "";
         this.cards.forEach((card) => {
@@ -68,7 +63,8 @@ class GameLogic {
         this.cards = [];
         this.players = [];
         this.dealerTurn = false;
-        this.playerWin = false
+        this.playerWin = false;
+        this.isPlayerBlackJack = false;
         this.reset();
     }
 
@@ -97,11 +93,30 @@ class GameLogic {
         this.players.push(new Player("Dealer"))
 
         let cardOrder = this.shuffle();
-        cardOrder.forEach((spriteNum) => this.cards.push(new Card(spriteNum, cardValues[spriteNum])))
+
+        cardOrder.forEach((spriteNum) => {
+            const cardValue = cardValues[spriteNum];
+            if (cardValue === 20) {
+                this.cards.push(new Card(spriteNum, 10, true))    
+            } else {
+                this.cards.push(new Card(spriteNum, cardValue, false))
+            }           
+        })
 
         //player:
         this.players[0].addCard(this.cards.pop())
         this.players[0].addCard(this.cards.pop())
+
+        const playerScores = this.players[0].getScores();
+        if(playerScores === 21) {
+            this.isPlayerBlackJack = true;
+        } else {this.isPlayerBlackJack = false;}
+
+        if(playerScores === 22) {
+            this.players[0].cards[0].value = 1; 
+            this.players[0].cards[1].value = 1; 
+            this.players[0].estimate();  
+        }
 
         //dealer:
         this.players[1].addCard(this.cards.pop())

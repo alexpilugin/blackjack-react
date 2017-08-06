@@ -1,0 +1,35 @@
+.win,
+.StandOff,
+.player-lost,
+.dealer-win,
+.dealer-failed {
+    background-repeat: no-repeat; 
+    background-color: white;
+    background-size: contain;
+}
+.win {
+    background-image:  url("you-win.gif"); 
+    width: 550px;
+    height: 400px;
+}
+.player-lost {
+    background-image:  url("travolta.png"); 
+    width: 720px;
+    height: 304px;  
+}
+.dealer-win {
+    background-image:  url("dealer-win.jpg"); 
+    width: 394px;
+    height: 576px;  
+}
+.dealer-failed {
+    background-image:  url("bjBABE.jpg"); 
+    width: 503px;
+    height: 576px;  
+}
+.StandOff {
+    background-image:  url("679-2.png"); 
+    width: 348px;
+    height: 191px; 
+    background-size: cover;  
+}

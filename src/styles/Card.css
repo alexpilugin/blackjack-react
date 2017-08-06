@@ -1,0 +1,24 @@
+.Card {
+  background-image:  url("cards-sprite-atlas.png");
+  background-color: white;
+  background-repeat: no-repeat;
+  width: 161px;
+  height: 233px;
+  float: left;
+  border: 2px solid black;
+  border-radius: 10px;
+  margin: 5px -10px;
+  -webkit-box-shadow: -1px 0px 9px 0px rgba(0,0,0,0.3);
+  -moz-box-shadow: -1px 0px 9px 0px rgba(0,0,0,0.3);
+  box-shadow: -1px 0px 9px 0px rgba(0,0,0,0.3);
+}
+.Card:nth-of-type(2n+3) {
+  -ms-transform: rotate(7deg); /* IE 9 */
+  -webkit-transform: rotate(7deg); /* Chrome, Safari, Opera */
+  transform: rotate(7deg);
+}
+.Card:nth-of-type(even) {
+  -ms-transform: rotate(-7deg); /* IE 9 */
+  -webkit-transform: rotate(-7deg); /* Chrome, Safari, Opera */
+  transform: rotate(-7deg);
+}
